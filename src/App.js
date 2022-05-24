@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import ExpenseItems from "./components/ExpenseItems";
+import Card from './components/Card'
+import './css/expense-container.css'
+import NewExpenseItem from './components/NewExpenseInput'
+import { useState } from "react";
+const DummyExpenseItems=[{
+  key:'1',
+  title:'Insurance',
+  date: Date.now(),
+  amount: 279
+},
+{
+  key:'2',
+  title:'Grocery',
+  date: Date.now(),
+  amount: 90
+},
+{
+  key:'3',
+  title:'Gas',
+  date: Date.now(),
+  amount: 50
+}]
 
 function App() {
+const[expenses,setExpenses]=  useState(DummyExpenseItems)
+  // const [filterYear,setFilterYear]=useState('2022')
+  const saveNewExpense=(item)=>{
+    const newAddedItem={
+      ...item,
+      id:Math.random().toString()
+    }
+    setExpenses((prevState)=>{
+      return [newAddedItem,...prevState]
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Card className='container'>
+      <NewExpenseItem className="new-expense-form" onNewExpenseSave={saveNewExpense}></NewExpenseItem>
+      <ExpenseItems expenses={expenses}/>
+    </Card>
   );
 }
 

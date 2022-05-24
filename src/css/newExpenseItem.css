@@ -1,0 +1,41 @@
+.inputHolder{
+    padding: 1rem 2rem 0 2rem;
+    padding-left: 20px;
+}
+.formHolder{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.myTitle{
+    padding-top: 1rem;
+    color: darkslategray;
+    font-family: cursive;
+    text-align: center;
+}
+.inputLabel{
+    color: darkslategray;
+    margin-right: 6px;
+}
+.inputField{
+    display: inline-block;
+    height: 2rem;
+    margin-right: 6px;
+    border: 2px solid lightslategrey;
+    border-radius: 6px;
+    text-align: center;
+    color: darkslategray;
+}
+button{
+    width:8rem;
+    height: 3rem;
+    background-color: darkslategray;
+    color:white;
+    border-radius: 6px;
+}
+
+.new-expense-add-button{
+    display: block;
+}
+.new-expense-form{
+    display: none;
+}
